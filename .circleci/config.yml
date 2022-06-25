@@ -15,10 +15,14 @@ jobs:
           command: flutter test
       - store_artifacts:
          path: build/app/outputs/flutter-apk/app-release.apk
-  unit-tests:
-    machine: true
+  jobs:
+    test:
+    docker:
+      - image: cirrusci/flutter
     steps:
-        - checkout
-        - run: echo "Running unit tests"
+      - checkout
+      - run: echo "Running unit tests"
+
+
 
           
