@@ -7,9 +7,18 @@ jobs:
       - image: cirrusci/flutter
     steps:
       - checkout
-      - run: flutter doctor
-      - run: flutter test
+      - run:
+          name: Install Dependencies
+          command: flutter doctor
+      - run:
+          name: Build Application
+          command: flutter test
       - store_artifacts:
          path: build/app/outputs/flutter-apk/app-release.apk
+  unit-tests:
+    machine: true
+    steps:
+        - checkout
+        - run: echo "Running unit tests"
 
           
